@@ -26,7 +26,7 @@ export const App = () => {
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
-    localStorage.setItem(CONTACTS_KEY, JSON.stringify(this.state.contacts));
+    localStorage.setItem(CONTACTS_KEY, JSON.stringify(contacts));
   }, [contacts]);
 
   const addContact = contact => {
@@ -65,7 +65,7 @@ export const App = () => {
   return (
     <div className={AppStyle.container}>
       <h1 className={AppStyle.primeryTitle}>Phonebook</h1>
-      <FormContact onSubmit={addContact} />
+      <FormContact addContact={addContact} />
       <ToastContainer />
       <h2 className={AppStyle.secondaryTitle}>Contacts </h2>
       <FilterContact value={filter} onChange={filterContacts} />
